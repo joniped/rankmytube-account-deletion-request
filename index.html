@@ -1,1 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RankMyTube Account Deletion</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family:'Roboto',sans-serif;
+background:#000;
+color:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+}
+
+.container{
+background:#111;
+padding:30px;
+border-radius:12px;
+width:90%;
+max-width:420px;
+box-shadow:0 4px 20px rgba(255,255,255,0.1);
+}
+
+h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+.input-group{
+margin-bottom:16px;
+}
+
+label{
+font-size:14px;
+display:block;
+margin-bottom:6px;
+}
+
+input,textarea{
+width:100%;
+padding:10px;
+background:transparent;
+border:none;
+border-bottom:2px solid #fff;
+color:#fff;
+outline:none;
+}
+
+textarea{
+resize:none;
+height:80px;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+background:#fff;
+color:#000;
+font-weight:500;
+border-radius:6px;
+cursor:pointer;
+margin-top:15px;
+}
+
+button:hover{
+opacity:0.9;
+}
+
+.note{
+font-size:12px;
+opacity:0.7;
+margin-top:10px;
+text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Delete RankMyTube Account</h2>
+
+<div class="input-group">
+<label>Email Address</label>
+<input type="email" id="email" placeholder="Enter your account email">
+</div>
+
+<div class="input-group">
+<label>Username (optional)</label>
+<input type="text" id="username" placeholder="Enter username">
+</div>
+
+<div class="input-group">
+<label>Reason for deletion (optional)</label>
+<textarea id="reason" placeholder="Reason for deleting account"></textarea>
+</div>
+
+<button onclick="sendRequest()">Request Account Deletion</button>
+
+<div class="note">
+Your request will be sent to RankMyTube support for manual account deletion.
+</div>
+
+</div>
+
+<script>
+
+function sendRequest(){
+
+let email=document.getElementById("email").value;
+let username=document.getElementById("username").value;
+let reason=document.getElementById("reason").value;
+
+if(email===""){
+alert("Please enter your email address");
+return;
+}
+
+let developerEmail="entatena1@gmail.com";
+
+let subject="RankMyTube Account Deletion Request";
+
+let body=
+"Hello RankMyTube Support,%0D%0A%0D%0A"+
+"I want to request deletion of my RankMyTube account.%0D%0A%0D%0A"+
+"Account Email: "+email+"%0D%0A"+
+"Username: "+username+"%0D%0A"+
+"Reason: "+reason+"%0D%0A%0D%0A"+
+"Please delete my account and associated data from your database.%0D%0A%0D%0A"+
+"Thank you.";
+
+window.location.href="mailto:"+developerEmail+"?subject="+subject+"&body="+body;
+
+}
+
+</script>
+
+</body>
+  </html>
